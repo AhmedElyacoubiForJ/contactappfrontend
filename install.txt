@@ -1,3 +1,15 @@
+Ahmed@LAPTOP-F904AG6L MINGW64 ~/ay/getarrays_courses
+$ npx create-react-app contactappfrontend
+
+Ahmed@LAPTOP-F904AG6L MINGW64 ~/ay/getarrays_courses
+$ cd contactappfrontend/
+
+Ahmed@LAPTOP-F904AG6L MINGW64 ~/ay/getarrays_courses/contactappfrontend (master)
+$ npm i axios react-router-dom
+
+
+Ahmed@LAPTOP-F904AG6L MINGW64 ~/ay/getarrays_courses/contactappfrontend (master)
+$ cat package.json
 {
   "name": "contactappfrontend",
   "version": "0.1.0",
@@ -38,3 +50,14 @@
     ]
   }
 }
+
+Ahmed@LAPTOP-F904AG6L MINGW64 ~/ay/getarrays_courses/contactappfrontend (master)
+$ code . && npm run start
+
+Clean up ReactJS application:
+1. delete src/logo.svg
+2. delete src/reportWebVitals.js
+3. delete src/setupTests.js
+4. delete src/App.test.js
+5. remove import reportWebVitals from './reportWebVitals'; and the call reportWebVitals(); from src/index.js
+6. remove import logo from './logo.svg'; and all codes whithin the DIV from src/App.js

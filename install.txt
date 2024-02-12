@@ -61,3 +61,7 @@ Clean up ReactJS application:
 4. delete src/App.test.js
 5. remove import reportWebVitals from './reportWebVitals'; and the call reportWebVitals(); from src/index.js
 6. remove import logo from './logo.svg'; and all codes whithin the DIV from src/App.js
+
+shortcuts:
+----------
+rafce to create a component

@@ -1,15 +1,15 @@
 import React from 'react'
 
-const Header = ({toogleModal, nbOfContacts}) => {
+const Header = ({ toggleModal, nbOfContacts }) => {
   return (
-    <Header className='header'>
+    <header className='header'>
         <div className='container'>
             <h3>Contact List ({nbOfContacts})</h3>
-            <button onClick={() => toogleModal(true)} className='btn'>
-                <i className='bi bi-plus-quare'></i>Add New Contact
+            <button onClick={() => toggleModal(true)} className='btn'>
+                <i className='bi bi-plus-square'></i> Add New Contact
             </button>
         </div>
-    </Header>
+    </header>
   )
 }
 

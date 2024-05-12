@@ -5,7 +5,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import { getContacts } from "./api/ContactService";
+import { getContacts, saveContact, udpatePhoto } from "./api/ContactService";
 import Header from "./components/Header";
 import ContactList from "./components/ContactList";
 import Contact from "./components/Contact";
@@ -43,6 +43,27 @@ function App() {
 
   const handleNewContact = async (event) => {
     event.preventDefault();
+    try {
+      const { data } = await saveContact(formValues);
+      const formData = new FormData();
+      formData.append("file", file, data.name);
+      formData.append("id", data.id);
+      const { data: photoUrl } = await udpatePhoto(formData);
+      toggleModal(false);
+      setFile(undefined);
+      fileRef.current.value = null;
+      setFormValues({
+        name: "",
+        email: "",
+        phone: "",
+        address: "",
+        title: "",
+        status: "",
+      });
+      getAllContacts();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const toggleModal = (show) =>

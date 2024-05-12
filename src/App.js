@@ -8,7 +8,8 @@ import {
 import { getContacts, saveContact, udpatePhoto } from "./api/ContactService";
 import Header from "./components/Header";
 import ContactList from "./components/ContactList";
-import Contact from "./components/Contact";
+import Contact from "./components/ContactDetail";
+import ContactDetail from "./components/ContactDetail";
 
 function App() {
   const modalRef = useRef();
@@ -30,7 +31,6 @@ function App() {
       setCurrentPage(page);
       const { data } = await getContacts(page, size);
       setData(data);
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -38,7 +38,6 @@ function App() {
 
   const onChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
-    console.log(formValues);
   };
 
   const handleNewContact = async (event) => {
@@ -91,6 +90,7 @@ function App() {
                   />
                 }
               />
+              <Route path="/contacts/:id" element={<ContactDetail />} />
             </Routes>
           </div>
         </main>

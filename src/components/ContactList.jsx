@@ -27,7 +27,7 @@ const ContactList = ({ data, currentPage, getAllContacts }) => {
               [...Array(data.totalPages).keys()].map((page, index) => (
                 <a
                   key={page}
-                  onClick={getAllContacts(page)}
+                  onClick={() => getAllContacts(page)}
                   className={currentPage === page ? "active" : ""}
                 >
                   {page + 1}

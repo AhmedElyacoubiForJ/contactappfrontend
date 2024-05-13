@@ -5,10 +5,14 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import { getContacts, saveContact, udpatePhoto } from "./api/ContactService";
+import {
+  getContacts,
+  saveContact,
+  udpateContact,
+  udpatePhoto,
+} from "./api/ContactService";
 import Header from "./components/Header";
 import ContactList from "./components/ContactList";
-import Contact from "./components/ContactDetail";
 import ContactDetail from "./components/ContactDetail";
 
 function App() {
@@ -65,6 +69,23 @@ function App() {
     }
   };
 
+  const updateContact = async (contact) => {
+    try {
+      const { data } = await saveContact(contact);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const updateImage = async (formData) => {
+    try {
+      const { data: photoUrl } = await udpatePhoto(formData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const toggleModal = (show) =>
     show ? modalRef.current.showModal() : modalRef.current.close();
 
@@ -90,7 +111,15 @@ function App() {
                   />
                 }
               />
-              <Route path="/contacts/:id" element={<ContactDetail />} />
+              <Route
+                path="/contacts/:id"
+                element={
+                  <ContactDetail
+                    updateContact={updateContact}
+                    updateImage={updateImage}
+                  />
+                }
+              />
             </Routes>
           </div>
         </main>
